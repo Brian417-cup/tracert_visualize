@@ -2,6 +2,7 @@ import networkx as nx
 import numpy as np
 import matplotlib.pyplot as plt
 
+# 邻接矩阵画图
 def simple_use():
     G = nx.Graph()
     # 创建邻接矩阵画图
@@ -24,6 +25,7 @@ def simple_use():
     nx.draw(G, pos, node_size=50, node_color='black', edge_color='b', width=2)
     plt.show()
 
+# 邻接矩阵画图，并加上flag
 def simple_use_with_flag():
     G = nx.Graph()
     Matrix = np.array(
@@ -46,6 +48,7 @@ def simple_use_with_flag():
     nx.draw_networkx_edges(G, pos, edge_color='b', width=2, style='dashed')  # solid|dashed|dotted, dashdot
     plt.show()
 
+# 手动添加有权重边的方式画图
 def simple_use_with_number_and_weight():
     G=nx.Graph()
     # 权值边设定
