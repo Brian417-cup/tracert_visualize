@@ -47,7 +47,7 @@ class CustomExeProcessor(threading.Thread):
         for item in self.argv:
             self.cmd = self.cmd + ' ' + item
 
-    def _dealPipeData(self, input):
+    def _deal_pipe_data(self, input):
         if input.endswith(b'\r\n'):
             input = input[0:len(input) - 2]
         elif input.endswith(b'\n'):
@@ -73,7 +73,7 @@ class CustomExeProcessor(threading.Thread):
                 out_data = pipe_out.readline()
 
                 while len(out_data) != 0:
-                    out_str = self._dealPipeData(out_data)
+                    out_str = self._deal_pipe_data(out_data)
                     print(out_str)
                     out_data = pipe_out.readline()
 
@@ -81,7 +81,7 @@ class CustomExeProcessor(threading.Thread):
                 err_data = pipe_err.readline()
 
                 while len(err_data) != 0:
-                    err_str = self._dealPipeData(err_data)
+                    err_str = self._deal_pipe_data(err_data)
                     print(err_str)
                     err_data = pipe_err.readline()
 
@@ -94,15 +94,17 @@ class CustomExeProcessor(threading.Thread):
                     file.writelines('输出数据\n\n')
                     out_data = pipe_out.readline()
                     while len(out_data) != 0:
-                        out_str = self._dealPipeData(out_data)
+                        out_str = self._deal_pipe_data(out_data)
                         file.writelines(out_str + '\n')
+                        # print('*')
                         out_data = pipe_out.readline()
 
                     file.writelines('\n\n缓冲错误数据\n\n')
                     err_data = pipe_err.readline()
                     while len(err_data) != 0:
-                        err_str = self._dealPipeData(err_data)
+                        err_str = self._deal_pipe_data(err_data)
                         file.writelines(err_str + '\n')
+                        # print('*')
                         err_data = pipe_err.readline()
 
                     print('输出结果已成功保存至 {0} 中'.format(self.export))
@@ -162,6 +164,7 @@ class CustomExeProcessor(threading.Thread):
 
 # 并行测试
 if __name__ == '__main__':
+    # tracert命令测试
     exeThread = CustomExeProcessor(threadID=1, name='tracert使用',
                                    argv=['tracert', 'www.baidu.com'],
                                    encoding='gbk',
