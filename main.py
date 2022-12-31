@@ -10,55 +10,33 @@ class Router:
     def __init__(self):
         self.graph = nx.Graph()
 
-    # 每个文件操作
-    def _tracert_per_file(slef, base_dir: str, encoding: str):
-        # 用键值对维护最终的每个路径
-        result = dict()
+    # 根据合并文件来恢复结点,默认路由行中不同ip用-隔开
+    '''
+    合并文件的格式:
+    tracert网站1
+    ipx1-ipx2-...-ipxn
+    tracert网站2
+    ipy1-ipy2-...-ipyn
+    \n(这里以\n结束)
+    '''
+    def get_all_edges_from_combine_txt(self, txt_path: str, txt_encoding: str = 'utf-8', sep: str = '-'):
+        with open(txt_path, 'r') as f:
+            data=f.readlines()
 
-        for item in glob.glob(os.path.join(base_dir, '*.txt')):
-            cur_routes = []
-            # print(item)
-            with open(item, mode='r', encoding=encoding) as f:
-                data = f.readlines()
-                # print(data)
-                s, e = slef._find_start_and_end_in_tracert(data)
-                print(f'{s}  {e}')
-                data = data[s:e + 1]
-                # 每行判断
-                for sentence in data:
-                    # 每行中以空格隔断，提取其中的ipv4地址
-                    small_patterns = sentence.split(' ')
-                    for ip_candidate in small_patterns:
-                        # 因为tracert的时候规定了只有ipv4地址，因此这里只需要判断ipv4
-                        if ip_utils.is_ipv4(ip_candidate) and cur_routes.count(ip_candidate) == 0:
-                            cur_routes.append(ip_candidate)
-                            break
-
-                result[os.path.basename(item)] = cur_routes
-
-        # print(result)
-        return result
-
-    # 找到开始记录的第一个路由下标
-    def _find_start_and_end_in_tracert(self, data: list):
-        sr = '通过最多 30 个跃点跟踪\n'
-        er = '跟踪完成。\n'
-
-        s, e = data.index(sr) + 3, data.index(er) - 2
-        return s, e
-
-    # 从固定文件夹下的所有保存有tracert结果的txt中抽取出路径
-    def get_all_routes_from_txts(self, base_dir: str, txt_encoding: str):
-        results = self._tracert_per_file(base_dir=base_dir, encoding=txt_encoding)
-        print(results)
-        for key in results:
-            values = results[key]
-            for i in range(len(values) - 1):
-                self.graph.add_edge(values[i], values[i + 1])
+            for i,item in enumerate(data):
+                # 以\n结束
+                if item=='\n':
+                    break
+                # 为tracert网站行
+                if i%2==0:
+                    continue
+                # 为ip路径行
+                ip_list=item.split(sep)
+                for j in range(len(ip_list)-1):
+                    self.graph.add_edge(ip_list[j],ip_list[j+1])
 
 
 if __name__ == '__main__':
     my_router = Router()
-    my_router.get_all_routes_from_txts(
-        base_dir=os.path.join('tracert', 'tracert_out_txts'),
-        txt_encoding='gbk')
+    my_router.get_all_edges_from_combine_txt(txt_path=os.path.join('file_op','out.txt'),
+                                             txt_encoding='gbk')

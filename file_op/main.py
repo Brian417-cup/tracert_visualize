@@ -5,7 +5,7 @@ import networkx as nx
 
 
 # 每个文件操作
-def tracert_per_file(base_path: str, encoding: str):
+def get_all_routes_from_txts(base_path: str, encoding: str, need_combine=False):
     # 用键值对维护最终的每个路径
     result = dict()
 
@@ -32,6 +32,20 @@ def tracert_per_file(base_path: str, encoding: str):
 
     print(result)
 
+    if need_combine:
+        with open('out.txt', mode='w', encoding=encoding) as f:
+            for key in result:
+                f.writelines(f'{key}\n')
+                cur_values = result[key]
+                for i, value in enumerate(cur_values):
+                    f.write(value)
+
+                    if i != len(cur_values) - 1:
+                        f.write('-')
+                f.write('\n')
+
+    return result
+
 
 # 找到开始记录的第一个路由下标
 def find_start_and_end_in_tracert(data: list):
@@ -43,5 +57,7 @@ def find_start_and_end_in_tracert(data: list):
 
 
 if __name__ == '__main__':
-    tracert_per_file(base_path=os.path.join('..', 'tracert', 'tracert_out_txts'),
-                     encoding='gbk')
+    get_all_routes_from_txts(base_path=os.path.join('..', 'tracert', 'tracert_out_txts'),
+                             encoding='gbk',
+                             need_combine=True
+                             )
