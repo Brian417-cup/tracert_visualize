@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -34,13 +36,27 @@ func main() {
 
 	//载入css、其他资源和脚本文件
 
-	http.Handle("/css/",http.FileServer(http.Dir("src")))
-	http.Handle("/img/",http.FileServer(http.Dir("src")))
-	http.Handle("/script/",http.FileServer(http.Dir("src")))
+	http.Handle("/css/", http.FileServer(http.Dir("src")))
+	http.Handle("/img/", http.FileServer(http.Dir("src")))
+	http.Handle("/script/", http.FileServer(http.Dir("src")))
+
+	//加载json数据
+	http.HandleFunc("/json_data", func(writer http.ResponseWriter, request *http.Request) {
+		//writer.Write([]byte("我们的歌声"))
+
+		data := readJsonFromFile("./src/json_data/app.json")
+		//fmt.Println(data)
+
+		writer.Header().Set("Content-Type", "application/json")
+
+		writer.Write([]byte(data))
+
+	})
 
 	server.ListenAndServe()
 }
 
+//加载html模板
 func loadTemplates() *template.Template {
 	result := template.New("templates")
 	result, err := result.ParseGlob("templates/*.html")
@@ -48,4 +64,14 @@ func loadTemplates() *template.Template {
 	template.Must(result, err)
 
 	return result
+}
+
+//从json文件中读取
+func readJsonFromFile(fileName string) string {
+	data, err := ioutil.ReadFile("./src/json_data/app.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return string(data)
 }

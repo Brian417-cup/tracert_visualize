@@ -1,10 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/full_screen.css">
+    <script src="/script/echarts.js"></script>
+    <script src="/script/jquery.js"></script>
+    <title>复杂的拓扑结构绘制</title>
 </head>
 <body>
-$END$
+<div class="full" id="main"></div>
+<script type="text/javascript">
+    // import * as echarts from 'echarts';
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.showLoading();
+    var option;
+
+    var url = 'http://localhost:8080/json_data';
+
+    $.get(url, function (graph) {
+        myChart.hideLoading();
+
+        // alert(graph);
+
+        graph.nodes.forEach(function (node) {
+            node.symbolsize = 5;
+        });
+
+        // 选项设置
+        option = {
+            title: {
+                text: '拓扑结构可视化',
+                subtext: '默认布局',
+                top: 'bottom',
+                left: 'right'
+            },
+            tooltip: {},
+            legend: [
+                {
+                    data: graph.categories.map(function (value) {
+                        return value.name;
+                    })
+                }
+            ],
+            series: [
+                {
+                    name: 'Less',
+                    type: 'graph',
+                    layout: 'force',
+                    data: graph.nodes,
+                    links: graph.links,
+                    categories: graph.categories,
+                    roam: true,
+                    label:{
+                        pos:'right',
+                        // fontSize:12
+                    },
+                    force:{
+                        repulsion: 100
+                    }
+                }
+            ]
+        };
+
+        // 打印获取到的请求
+        alert(graph);
+
+        myChart.setOption(option);
+    })
+
+
+</script>
 </body>
 </html>

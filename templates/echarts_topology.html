@@ -3,16 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>ECharts拓扑关系绘制</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+    </style>
     <script src="/script/echarts.js"></script>
 </head>
 <body>
-<div id="main" style="width: 600px;height: 400px"></div>
+<!--<div id="main" style="width: 100%;height: 100%"></div>-->
+<div id="main"></div>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
     // 创建一个简单的ECharts结构
     option = {
+        // 标题
+        title: {
+            text: '拓扑关系图简单测试',
+        },
         series: [
             {
                 // 基本结构
@@ -22,7 +40,7 @@
                 focusNodeAdjacency: true,
                 roam: true,
                 categories: [
-                    // 第一个结点
+                    // 第一种类型的样式
                     {
                         name: '',
                         itemStyle: {
@@ -31,6 +49,7 @@
                             }
                         }
                     },
+                    // 第二种类型的样式
                     {
                         name: '',
                         itemStyle: {
@@ -50,7 +69,7 @@
                 },
                 // 设置force结点类实现个图标之间的间距
                 force: {
-                    repulision: 1000
+                    repulision: 100
                 },
                 // 真实数据
                 // 设置点
