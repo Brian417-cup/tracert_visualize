@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ECharts拓扑关系绘制</title>
+    <script src="/script/echarts.js"></script>
+</head>
+<body>
+<div id="main" style="width: 600px;height: 400px"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 创建一个简单的ECharts结构
+    option = {
+        series: [
+            {
+                // 基本结构
+                type: 'graph',
+                layout: 'force',
+                symbolsize: 45,
+                focusNodeAdjacency: true,
+                roam: true,
+                categories: [
+                    // 第一个结点
+                    {
+                        name: '',
+                        itemStyle: {
+                            normal: {
+                                color: "#009800"
+                            }
+                        }
+                    },
+                    {
+                        name: '',
+                        itemStyle: {
+                            normal: {
+                                color: "#009800",
+                            }
+                        }
+                    }],
+                // 设置label结点来设置字体大小
+                label: {
+                    normal: {
+                        show: true,
+                        textStyle: {
+                            fontSize: 12
+                        }
+                    }
+                },
+                // 设置force结点类实现个图标之间的间距
+                force: {
+                    repulision: 1000
+                },
+                // 真实数据
+                // 设置点
+                data: [{
+                    name: '192.168.0.1',
+                    draggable: true
+                }, {
+                    name: '0.0.0.0',
+                    draggable: true
+                }],
+                // 设置连接
+                links: [{
+                    source: '192.168.0.1',
+                    target: '0.0.0.0',
+                    value: 2
+                }]
+            }
+        ]
+    }
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+</body>
+</html>
