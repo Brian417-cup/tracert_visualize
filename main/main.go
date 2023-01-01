@@ -42,9 +42,10 @@ func main() {
 
 	//加载json数据
 	http.HandleFunc("/json_data", func(writer http.ResponseWriter, request *http.Request) {
-		//writer.Write([]byte("我们的歌声"))
 
-		data := readJsonFromFile("./src/json_data/app.json")
+		//data := readJsonFromFile("./src/json_data/app.json")
+		//data := readJsonFromFile("./src/json_data/app2.json")
+		data := readJsonFromFile("./src/json_data/out.json")
 		//fmt.Println(data)
 
 		writer.Header().Set("Content-Type", "application/json")
@@ -68,7 +69,7 @@ func loadTemplates() *template.Template {
 
 //从json文件中读取
 func readJsonFromFile(fileName string) string {
-	data, err := ioutil.ReadFile("./src/json_data/app.json")
+	data, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		fmt.Println(err)
 	}
