@@ -17,3 +17,10 @@ class Root:
         _links = [link.Link.from_dict(y) for y in obj.get("links")]
         _categories = [category.Category.from_dict(y) for y in obj.get("categories")]
         return Root(_nodes, _links, _categories)
+
+    # 默认结点的id就是在列表中的下标
+    def get_id_str_by_name(self, name: str) -> str:
+        for id, item in enumerate(self.nodes):
+            if name == item.name:
+                return str(id)
+        return str(-1)

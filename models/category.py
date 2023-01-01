@@ -1,6 +1,6 @@
 from typing import Any
 from dataclasses import dataclass
-
+from enum import Enum
 
 @dataclass
 class Category:
