@@ -26,5 +26,5 @@ def is_ipv6(ip: str):
 
 
 # 判断是不是ip
-def check_ip(ip):
+def is_ip(ip):
     return is_ipv4(ip) or is_ipv6(ip)

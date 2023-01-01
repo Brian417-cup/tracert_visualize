@@ -1,11 +1,10 @@
 import glob
 import os
-from file_op import ip_utils
-import networkx as nx
+from combine import ip_utils
 
 
 # 每个文件操作
-def get_all_routes_from_txts(base_path: str, encoding: str, need_combine=False):
+def get_all_routes_from_txts(base_path: str, encoding: str, need_combine_and_out=False):
     # 用键值对维护最终的每个路径
     result = dict()
 
@@ -24,7 +23,9 @@ def get_all_routes_from_txts(base_path: str, encoding: str, need_combine=False):
                 small_patterns = sentence.split(' ')
                 for ip_candidate in small_patterns:
                     # 因为tracert的时候规定了只有ipv4地址，因此这里只需要判断ipv4
-                    if ip_utils.is_ipv4(ip_candidate) and cur_routes.count(ip_candidate) == 0:
+                    # 当然这里还要考虑到最后整合的时候其他人的结果是有ipv6的可能
+                    # if ip_utils.is_ipv4(ip_candidate) and cur_routes.count(ip_candidate) == 0:
+                    if ip_utils.is_ip(ip_candidate) and cur_routes.count(ip_candidate) == 0:
                         cur_routes.append(ip_candidate)
                         break
 
@@ -32,7 +33,7 @@ def get_all_routes_from_txts(base_path: str, encoding: str, need_combine=False):
 
     print(result)
 
-    if need_combine:
+    if need_combine_and_out:
         with open('out.txt', mode='w', encoding=encoding) as f:
             for key in result:
                 f.writelines(f'{key}\n')
@@ -56,8 +57,11 @@ def find_start_and_end_in_tracert(data: list):
     return s, e
 
 
+'''
+对./tracert/main.py中提取到的30个tracert文件,进行合并，最终提取出各个链路的ip在out.txt中
+'''
 if __name__ == '__main__':
     get_all_routes_from_txts(base_path=os.path.join('..', 'tracert', 'tracert_out_txts'),
                              encoding='gbk',
-                             need_combine=True
+                             need_combine_and_out=True
                              )

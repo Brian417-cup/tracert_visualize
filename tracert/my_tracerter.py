@@ -27,13 +27,3 @@ class MyTracerter:
                                           export=os.path.join(self.export_base, f'tracert_{item}_export.txt'),
                                           parallel=True
                                           ).execute()
-
-
-if __name__ == '__main__':
-    my_tracerter = MyTracerter(encoding='gbk',
-                               type=exe_runner.ExeProcessType.EXPORT,
-                               tracert_websites=constants.websites,
-                               is_ipv4=True,
-                               export_path_base=os.path.join(os.path.curdir, 'tracert_out_txts'))
-
-    my_tracerter.run()
