@@ -7832,7 +7832,7 @@
                 return image;
             }
 
-            // Only when there is no existent image or existent image src
+            // Only when there is no existent image or existent image res
             // is different, this method is responsible for load.
             var cachedImgObj = globalImageCache.get(newImageOrSrc);
 
@@ -8464,7 +8464,7 @@
                         // `dirty()` and `textBackgroundColor.image` will be replaced with the loaded
                         // image, and then the right size will be calculated here at the next tick.
                         // See `graphic/helper/text.js`.
-                        // (2) If image loaded, and `textBackgroundColor.image` is image src string,
+                        // (2) If image loaded, and `textBackgroundColor.image` is image res string,
                         // use `imageHelper.findExistImage` to find cached image.
                         // `imageHelper.findExistImage` will always be called here before
                         // `imageHelper.createOrUpdateImage` in `graphic/helper/text.js#renderRichText`
@@ -15104,7 +15104,7 @@
         segmentIgnoreThreshold: 0,
 
         /**
-         * See `module:zrender/src/graphic/helper/subPixelOptimize`.
+         * See `module:zrender/res/graphic/helper/subPixelOptimize`.
          * @type {boolean}
          */
         subPixelOptimize: false,
@@ -17977,7 +17977,7 @@
      * to manage.)
      *
      * The `textStyle` object can either be a plain object or an instance of
-     * `zrender/src/graphic/Style`, and either be the style of normal or emphasis.
+     * `zrender/res/graphic/Style`, and either be the style of normal or emphasis.
      * After this mothod called, the `textStyle` object can then be used in
      * `el.setStyle(textStyle)` or `el.hoverStyle = textStyle`.
      *
@@ -18183,7 +18183,7 @@
      * restore the style.
      *
      * Usage (& NOTICE):
-     * When a style object (eithor plain object or instance of `zrender/src/graphic/Style`) is
+     * When a style object (eithor plain object or instance of `zrender/res/graphic/Style`) is
      * about to be modified on its text related properties, `rollbackDefaultTextStyle` should
      * be called before the modification and `applyDefaultTextStyle` should be called after that.
      * (For the case that all of the text related properties is reset, like `setTextStyleCommon`
@@ -19787,7 +19787,7 @@
 * under the License.
 */
 
-// import Text from 'zrender/src/graphic/Text';
+// import Text from 'zrender/res/graphic/Text';
 
     /**
      * 每三位默认加,格式化
@@ -29752,7 +29752,7 @@
             // Check version
             if ((version$1.replace('.', '') - 0) < (dependencies.zrender.replace('.', '') - 0)) {
                 throw new Error(
-                    'zrender/src ' + version$1
+                    'zrender/res ' + version$1
                     + ' is too old for ECharts ' + version
                     + '. Current version need ZRender '
                     + dependencies.zrender + '+'
@@ -37272,7 +37272,7 @@
 */
 
     /**
-     * Do not mount those modules on 'src/echarts' for better tree shaking.
+     * Do not mount those modules on 'res/echarts' for better tree shaking.
      */
 
     var parseGeoJson = parseGeoJson$1;
@@ -38172,8 +38172,8 @@
 * under the License.
 */
 
-// var arrayDiff = require('zrender/src/core/arrayDiff');
-// 'zrender/src/core/arrayDiff' has been used before, but it did
+// var arrayDiff = require('zrender/res/core/arrayDiff');
+// 'zrender/res/core/arrayDiff' has been used before, but it did
 // not do well in performance when roam with fixed dataZoom window.
 
 // function convertToIntId(newIdList, oldIdList) {
@@ -46227,7 +46227,7 @@
 * under the License.
 */
 
-// import * as zrUtil from 'zrender/src/core/util';
+// import * as zrUtil from 'zrender/res/core/util';
 
 // In case developer forget to include grid component
     registerVisual(visualSymbol('scatter', 'circle'));
@@ -47548,7 +47548,7 @@
 // Fix for 钓鱼岛
 
 // var Region = require('../Region');
-// var zrUtil = require('zrender/src/core/util');
+// var zrUtil = require('zrender/res/core/util');
 
 // var geoCoord = [126, 25];
 
@@ -57219,7 +57219,7 @@
      * @module echarts/chart/helper/LineDraw
      */
 
-// import IncrementalDisplayable from 'zrender/src/graphic/IncrementalDisplayable';
+// import IncrementalDisplayable from 'zrender/res/graphic/IncrementalDisplayable';
 
     /**
      * @alias module:echarts/component/marker/LineDraw
@@ -79229,7 +79229,7 @@
                 var lang$$1 = model.get('lang');
                 var html = ''
                     + '<body style="margin:0;">'
-                    + '<img src="' + url + '" style="max-width:100%;" title="' + ((lang$$1 && lang$$1[0]) || '') + '" />'
+                    + '<img res="' + url + '" style="max-width:100%;" title="' + ((lang$$1 && lang$$1[0]) || '') + '" />'
                     + '</body>';
                 var tab = window.open();
                 tab.document.write(html);
@@ -82970,7 +82970,7 @@
 * under the License.
 */
 
-// import Group from 'zrender/src/container/Group';
+// import Group from 'zrender/res/container/Group';
     /**
      * @alias module:echarts/component/tooltip/TooltipRichContent
      * @constructor
@@ -95173,7 +95173,7 @@
                     imageRuntimeStyle.width = oldRuntimeWidth;
                     imageRuntimeStyle.height = oldRuntimeHeight;
 
-                    // Caching image original width, height and src
+                    // Caching image original width, height and res
                     this._imageSrc = src;
                     this._imageWidth = ow;
                     this._imageHeight = oh;
@@ -95288,7 +95288,7 @@
                         imageELStyle.width = round$3(scaleX * ow * dw / sw) + 'px';
                         imageELStyle.height = round$3(scaleY * oh * dh / sh) + 'px';
 
-                        // Caching image original width, height and src
+                        // Caching image original width, height and res
                         self._imageWidth = ow;
                         self._imageHeight = oh;
                         self._imageSrc = image;
@@ -95335,7 +95335,7 @@
             if (alpha < 1) {
                 filterStr += '.Alpha(opacity=' + round$3(alpha * 100) + ') ';
             }
-            filterStr += imageTransformPrefix + '.AlphaImageLoader(src=' + image + ', SizingMethod=scale)';
+            filterStr += imageTransformPrefix + '.AlphaImageLoader(res=' + image + ', SizingMethod=scale)';
 
             imageELStyle.filter = filterStr;
 
@@ -96171,7 +96171,7 @@
 
         if (image !== el.__imageSrc) {
             attrXLink(svgEl, 'href', image);
-            // Caching image src
+            // Caching image res
             el.__imageSrc = image;
         }
 
