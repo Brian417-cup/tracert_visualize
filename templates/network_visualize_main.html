@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网络可视化</title>
+    <link rel="stylesheet" href="css/templatemo_main.css">
+    <link rel="stylesheet" type="text/css" href="/css/full_screen.css">
+    <script src="/script/echarts.js"></script>
+    <script src="/script/jquery.js"></script>
+    <script src="/script/config.js"></script>
+    <script src="/script/topology_chart_load.js"></script>
+</head>
+<body>
+<div id="main-wrapper">
+    <!--    头部-->
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <div class="logo">
+                <h1>网络可视化</h1>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--    左边分栏-->
+    <div class="templpate-page-wrapper">
+        <div class="navbar-collapse templatemo-sidebar">
+            <!--                    菜单布局-->
+            <!--                拓扑结构-->
+            <ul class="templatemo-sidebar-menu">
+                <li id="topology_li" class="active"><a href="#"
+                                                       onclick="topologyVisualization(ip,port,sep,'main');liStateChange('topology_li',['histogram_li'])">
+                    <i class="fa fa-map-marker"></i>拓扑结构</a></li>
+            </ul>
+            <ul class="templatemo-sidebar-menu">
+                <li id="histogram_li"><a href="#"
+                                         onclick="histogramVisualization(ip,port,sep,'main');liStateChange('histogram_li',['topology_li'])">
+                    <i class="fa fa-cubes"></i>度分布直方图和其他信息</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--    数据展示层-->
+    <div class="templatemo-content-wrapper">
+        <div class="templatemo-content" id="main"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    <!--加载拓扑图方法-->
+    function liStateChange(activeName, inActiveName) {
+        $('#' + activeName).addClass("active");
+        inActiveName.forEach(function (itemName) {
+            $('#' + itemName).removeClass("active");
+        });
+    }
+
+    function topologyVisualization(ip, port, sep, displayPanelName) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(displayPanelName));
+        myChart.clear();
+        myChart.showLoading();
+        var option;
+        var url = protocol + ip + ':' + port + sep + req_topology_pattern;
+
+        $.get(url, function (graph) {
+            myChart.hideLoading();
+
+            // alert(graph);
+
+            graph.nodes.forEach(function (node) {
+                node.symbolsize = 5;
+            });
+
+            // 选项设置
+            option = {
+                title: {
+                    text: '拓扑结构可视化',
+                    subtext: '拓扑图',
+                    top: 'top',
+                    left: 'left'
+                },
+                tooltip: {},
+                notMerge: true,
+                legend: [
+                    {
+                        data: graph.categories.map(function (value) {
+                            return value.name;
+                        })
+                    }
+                ],
+                series: [
+                    {
+                        name: '结点',
+                        type: 'graph',
+                        layout: 'force',
+                        data: graph.nodes,
+                        links: graph.links,
+                        categories: graph.categories,
+                        roam: true,
+                        label: {
+                            pos: 'right',
+                            // fontSize:12
+                        },
+                        force: {
+                            repulsion: 100
+                        }
+                    }
+                ]
+            };
+
+            // 打印获取到的请求
+            alert('拓扑图数据载入成功');
+
+            myChart.setOption(option);
+        });
+    }
+
+    function histogramVisualization(ip, port, sep, displayPanelName) {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById(displayPanelName));
+        myChart.clear();
+        myChart.showLoading();
+        var option;
+        var url = protocol + ip + ':' + port + sep + req_network_struct_pattern;
+
+        $.get(url, function (networkStruct) {
+            myChart.hideLoading();
+
+            var option = {
+                title: {
+                    text: '度分布直方图',
+                    subtext: networkStruct.subtitle,
+                    subtextStyle: {
+                        fontSize: 18
+                    },
+                    top: 'top',
+                    left: 'left'
+                },
+                tooltip: {},
+                notMerge: true,
+                legend: {
+                    data: '度'
+                },
+                xAxis: {
+                    data: networkStruct.xAxis_data
+                },
+                yAxis: {},
+                series: [{
+                    name: '度',
+                    type: 'bar',
+                    data: networkStruct.yAxis_data
+                }]
+            };
+
+            // 打印获取到的请求
+            alert('直方图图数据载入成功');
+
+            myChart.setOption(option);
+        })
+
+    }
+
+    // 默认加载拓扑可视化的方法
+    topologyVisualization(ip, port, sep, 'main');
+
+</script>
+
+</body>
+</html>

@@ -40,24 +40,33 @@ func main() {
 	})
 
 	//载入css、其他资源和脚本文件
-
 	http.Handle("/css/", http.FileServer(http.Dir("res")))
 	http.Handle("/img/", http.FileServer(http.Dir("res")))
 	http.Handle("/script/", http.FileServer(http.Dir("res")))
+	http.Handle("/jqvmap/", http.FileServer(http.Dir("res")))
+	http.Handle("/fonts/", http.FileServer(http.Dir("res")))
 
-	//加载json数据
-	http.HandleFunc("/json_data", func(writer http.ResponseWriter, request *http.Request) {
-
-		//data := readJsonFromFile("./res/json_data/app.json")
-		//data := readJsonFromFile("./res/json_data/app2.json")
-		data := readJsonFromFile("./res/json_data/out.json")
+	//加载拓扑图json数据
+	http.HandleFunc("/json_data_topology", func(writer http.ResponseWriter, request *http.Request) {
+		data := readJsonFromFile("./res/json_data/topology.json")
 		//fmt.Println(data)
 
 		writer.Header().Set("Content-Type", "application/json")
-
 		writer.Write([]byte(data))
 
 	})
+
+	//加载直方图json数据
+	http.HandleFunc("/json_data_others", func(writer http.ResponseWriter, request *http.Request) {
+		data := readJsonFromFile("./res/json_data/network_struct.json")
+		//fmt.Println(data)
+
+		writer.Header().Set("Content-Type", "application/json")
+		writer.Write([]byte(data))
+
+	})
+
+	fmt.Println("服务器启动成功")
 
 	server.ListenAndServe()
 }

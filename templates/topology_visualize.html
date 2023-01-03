@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/full_screen.css">
     <script src="/script/echarts.js"></script>
     <script src="/script/jquery.js"></script>
+    <script src="/script/config.js"></script>
     <title>复杂的拓扑结构绘制</title>
 </head>
 <body>
@@ -16,8 +17,7 @@
     var myChart = echarts.init(document.getElementById('main'));
     myChart.showLoading();
     var option;
-
-    var url = 'http://localhost:8080/json_data';
+    var url = protocol + ip + ':' + port + sep + req_topology_pattern;
 
     $.get(url, function (graph) {
         myChart.hideLoading();
@@ -32,9 +32,9 @@
         option = {
             title: {
                 text: '拓扑结构可视化',
-                subtext: '默认布局',
-                top: 'bottom',
-                left: 'right'
+                subtext: '拓扑图',
+                top: 'top',
+                left: 'left'
             },
             tooltip: {},
             legend: [
@@ -53,11 +53,11 @@
                     links: graph.links,
                     categories: graph.categories,
                     roam: true,
-                    label:{
-                        pos:'right',
+                    label: {
+                        pos: 'right',
                         // fontSize:12
                     },
-                    force:{
+                    force: {
                         repulsion: 100
                     }
                 }
