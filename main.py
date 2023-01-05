@@ -29,10 +29,11 @@ class Router:
                                              symbolSize=random.uniform(10, 15),
                                              x=random.uniform(-500.0, 500.0),
                                              y=random.uniform(-500.0, 500.0),
-                                             value=1,
+                                             # value=1,
+                                             value=0,
                                              category=random.randint(0, self.category_cnt - 1)))
-        else:
-            self.root.nodes[int(src_idx)].value += 1
+        # else:
+        #     self.root.nodes[int(src_idx)].value += 1
 
     def _add_edge_to_root(self, source, target):
         self.root.links.append(link.Link(source=source, target=target))
@@ -42,8 +43,12 @@ class Router:
             self.graph.add_edge(source, target)
             source_id = self.root.get_id_str_by_name(source)
             target_id = self.root.get_id_str_by_name(target)
+            # 加边
             self.root.links.append(link.Link(source=source_id, target=target_id))
-            self.root.links.append(link.Link(source=target_id, target=source_id))
+            # self.root.links.append(link.Link(source=target_id, target=source_id))
+            # 同时做度调整
+            self.root.nodes[int(source_id)].value += 1
+            self.root.nodes[int(target_id)].value += 1
 
     # 对指定文件下的所有txt文件进行结点的计算和合并
     def get_all_edges_from_combine_txts(self, base_dir: str, txt_encoding: str = 'utf-8', sep: str = '-'):
@@ -73,17 +78,29 @@ class Router:
                     continue
                 # 为ip路径行
                 ip_list = item.split(sep)
+
+                # 去多余的\n
+                for i, item in enumerate(ip_list):
+                    ip_list[i] = item.replace('\n', '')
+
+                # 加点
+                for item in ip_list:
+                    self._add_node_to_root_conditional(item)
+
+                # 加边
                 for j in range(len(ip_list) - 1):
-                    u = ip_list[j].replace('\n', '')
-                    v = ip_list[j + 1].replace('\n', '')
-                    self._add_node_to_root_conditional(src_node=u)
-                    self._add_node_to_root_conditional(src_node=v)
+                    u = ip_list[j]
+                    v = ip_list[j + 1]
 
                     self._add_edge_to_graph_and_root_conditional(source=u, target=v)
+
         self._update_grade_by_category_cnt()
 
     # 根据种类类型划分为不同的等级
     def _update_grade_by_category_cnt(self):
+        # 先清空原来的等级划分
+        self.grades.clear()
+        self.root.categories.clear()
         # 等级划分内置函数
         def get_index_in_grades(need_judge_value: int) -> int:
             # 特殊情况：恰好等于最后一个元素
@@ -183,10 +200,14 @@ class Router:
 运行main.py，将合并化后的结构导出为ECharts支持的json格式，存放在./export/out.json中
 '''
 if __name__ == '__main__':
-    my_router = Router()
+    my_router = Router(category_cnt=5)
     # my_router._get_all_edges_from_single_combine_txt(txt_path=os.path.join('combine', 'out.txt'),
     #                                                  txt_encoding='gbk')
+    # 自己的
     my_router.get_all_edges_from_combine_txts(base_dir=os.path.join('combine'),
+                                              txt_encoding='gbk')
+    # 其他人的
+    my_router.get_all_edges_from_combine_txts(base_dir=os.path.join('combine', 'others', 'export'),
                                               txt_encoding='gbk')
     my_router.export_to_json(export_path=os.path.join('export', 'topology.json'),
                              json_txt_encoding='utf-8')
