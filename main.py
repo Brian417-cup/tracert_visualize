@@ -19,6 +19,7 @@ class Router:
         self.root.categories = []
         self.lower_bound, self.upper_bound = float('inf'), float('-inf')
         self.grades = []
+        self.base_size = 6
 
     # 内置添加点、边系列的函数
     def _add_node_to_root_conditional(self, src_node):
@@ -26,10 +27,9 @@ class Router:
         if src_idx == str(-1):
             self.root.nodes.append(node.Node(name=src_node,
                                              id=str(len(self.root.nodes)),
-                                             symbolSize=random.uniform(10, 15),
+                                             symbolSize=self.base_size,
                                              x=random.uniform(-500.0, 500.0),
                                              y=random.uniform(-500.0, 500.0),
-                                             # value=1,
                                              value=0,
                                              category=random.randint(0, self.category_cnt - 1)))
         # else:
@@ -138,9 +138,11 @@ class Router:
             self.root.categories.append(category.Category(name=f'{int(lower_bound)}~'
             f'{int(upper_bound - 1) if i != len(self.grades) - 2 else self.upper_bound}'))
 
-        # 更新每个节点的对应等级
+        # 更新每个节点的对应等级,并根据结点的度来确定结点的大小
         for item in self.root.nodes:
-            item.category = self.root.categories[get_index_in_grades(item.value)].name
+            grade_idx = get_index_in_grades(item.value)
+            item.category = self.root.categories[grade_idx].name
+            item.symbolSize = self.base_size + item.value * (grade_idx + 1)
 
     # 导出为ECharts支持的json格式
     def export_to_json(self, export_path: str, json_txt_encoding='utf-8'):
