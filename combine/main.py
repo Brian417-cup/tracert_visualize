@@ -34,7 +34,7 @@ def get_all_routes_from_txts(base_path: str, encoding: str, need_combine_and_out
     print(result)
 
     if need_combine_and_out:
-        with open('out.txt', mode='w', encoding=encoding) as f:
+        with open('my_result.txt', mode='w', encoding=encoding) as f:
             for key in result:
                 f.writelines(f'{key}\n')
                 cur_values = result[key]

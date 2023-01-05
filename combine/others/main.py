@@ -40,7 +40,7 @@ def deal_with_idxs_and_1(src_path: str, txt_encoding: str = 'gbk',
                 for item in line.split(sep_str):
                     # if ip_utils.is_ip(item) and cur_list.__contains__(item)==False:
                     # 只合并ipv4,同时对当前链路的输入保证去重
-                    if ip_utils.is_ipv4(item) and cur_list.__contains__(item)==False:
+                    if ip_utils.is_ipv4(item) and cur_list.__contains__(item) == False:
                         cur_list.append(item)
 
             ip_lists.append(cur_list)
@@ -59,18 +59,20 @@ def export_ip_list(export_path: str = '', txt_encoding: str = 'gbk', ip_list: li
                     f.write('-')
             f.write('\n')
 
-
+'''
+合并其他
+'''
 if __name__ == '__main__':
-    start_list, end_list = find_start_and_end_idx_1(src_path=os.path.join('txts', '6.txt'),
-                                                    # txt_encoding='gbk',
-                                                    txt_encoding='utf-8',
-                                                    start_str='的路由', start_offset=4,
+    start_list, end_list = find_start_and_end_idx_1(src_path=os.path.join('txts', '29.txt'),
+                                                    txt_encoding='gbk',
+                                                    # txt_encoding='utf-8',
+                                                    start_str='的路由', start_offset=2,
                                                     # start_str='访问', start_offset=1,
-                                                    end_str='跟踪完成', end_offset=-4)
-                                            # end_str='结束', end_offset=-1)
-    ip_lists = deal_with_idxs_and_1(src_path=os.path.join('txts', '6.txt'),
-                                    # txt_encoding='gbk',
-                                    txt_encoding='utf-8',
+                                                    # end_str='跟踪完成', end_offset=-2)
+                                                    end_str='结束', end_offset=-1)
+    ip_lists = deal_with_idxs_and_1(src_path=os.path.join('txts', '29.txt'),
+                                    txt_encoding='gbk',
+                                    # txt_encoding='utf-8',
                                     replace_to_space_list=['\n', '[', ']'], sep_str=' ',
                                     start_idxs=start_list, end_idxs=end_list)
-    export_ip_list(export_path=os.path.join('export', '6_out.txt'), ip_list=ip_lists)
+    export_ip_list(export_path=os.path.join('export', '29_out.txt'), ip_list=ip_lists)

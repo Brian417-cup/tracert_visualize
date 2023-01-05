@@ -169,6 +169,6 @@ if __name__ == '__main__':
                                    argv=['tracert', 'www.baidu.com'],
                                    encoding='gbk',
                                    type=ExeProcessType.EXPORT,
-                                   export=os.path.join(os.curdir, 'out.txt'),
+                                   export=os.path.join(os.curdir, 'my_result.txt'),
                                    parallel=True)
     exeThread.execute()

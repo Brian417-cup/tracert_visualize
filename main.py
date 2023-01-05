@@ -101,6 +101,7 @@ class Router:
         # 先清空原来的等级划分
         self.grades.clear()
         self.root.categories.clear()
+
         # 等级划分内置函数
         def get_index_in_grades(need_judge_value: int) -> int:
             # 特殊情况：恰好等于最后一个元素
@@ -201,7 +202,7 @@ class Router:
 '''
 if __name__ == '__main__':
     my_router = Router(category_cnt=5)
-    # my_router._get_all_edges_from_single_combine_txt(txt_path=os.path.join('combine', 'out.txt'),
+    # my_router._get_all_edges_from_single_combine_txt(txt_path=os.path.join('combine', 'my_result.txt'),
     #                                                  txt_encoding='gbk')
     # 自己的
     my_router.get_all_edges_from_combine_txts(base_dir=os.path.join('combine'),
