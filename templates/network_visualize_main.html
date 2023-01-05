@@ -34,7 +34,7 @@
             <!--                拓扑结构-->
             <ul class="templatemo-sidebar-menu">
                 <li id="topology_li" class="active"><a href="#"
-                                                       onclick="topologyVisualization(ip,port,sep,1200,'main');liStateChange('topology_li',['histogram_li'])">
+                                                       onclick="topologyVisualization(ip,port,sep,maxNodesCnt,'main');liStateChange('topology_li',['histogram_li'])">
                     <i class="fa fa-map-marker"></i>拓扑结构</a></li>
             </ul>
             <ul class="templatemo-sidebar-menu">
@@ -91,6 +91,14 @@
                     left: 'left'
                 },
                 tooltip: {},
+                focusNodeAdjacency: true,
+                emphasis: {
+                    focus: "adjacency",
+                },
+                legendHoverLink: true,
+                lineStyle: {
+                    curveness: 3,
+                },
                 notMerge: true,
                 legend: [
                     {
@@ -114,7 +122,10 @@
                             // fontSize:12
                         },
                         force: {
-                            repulsion: 35
+                            initLayout: "circular",
+                            repulsion: 200,
+                            gravity: 0.01,
+                            layoutAnimation: true
                         }
                     }
                 ]
@@ -156,11 +167,19 @@
                 xAxis: {
                     data: networkStruct.xAxis_data
                 },
-                yAxis: {},
+                yAxis: {
+                    type: "log",
+                    axisLabel: {
+                        formatter: function (value) {
+                            return value === 0 ? 0.1 : value;
+                        }
+                    },
+                },
                 series: [{
                     name: '度',
                     type: 'bar',
-                    data: networkStruct.yAxis_data
+                    data: networkStruct.yAxis_data,
+                    barMinHeight: 5
                 }]
             };
 
@@ -173,7 +192,7 @@
     }
 
     // 默认加载拓扑可视化的方法
-    topologyVisualization(ip, port, sep, 1200, 'main');
+    topologyVisualization(ip, port, sep, maxNodesCnt, 'main');
 
 </script>
 
