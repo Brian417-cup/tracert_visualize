@@ -34,7 +34,7 @@
             <!--                拓扑结构-->
             <ul class="templatemo-sidebar-menu">
                 <li id="topology_li" class="active"><a href="#"
-                                                       onclick="topologyVisualization(ip,port,sep,maxNodesCnt,'main');liStateChange('topology_li',['histogram_li'])">
+                                                       onclick="topologyVisualization(ip,port,sep,1200,'main');liStateChange('topology_li',['histogram_li'])">
                     <i class="fa fa-map-marker"></i>拓扑结构</a></li>
             </ul>
             <ul class="templatemo-sidebar-menu">
@@ -74,7 +74,7 @@
             graph.nodes.forEach(function (node) {
                 node.symbolsize = 5;
             });
-            
+
             shuffuleIndexList = shuffule(maxNodesCnt, 0, graph.nodes.length - 1);
             shuffuleData = [];
 
@@ -114,7 +114,7 @@
                             // fontSize:12
                         },
                         force: {
-                            repulsion: 100
+                            repulsion: 35
                         }
                     }
                 ]
