@@ -8,6 +8,7 @@
     <script src="/script/echarts.js"></script>
     <script src="/script/jquery.js"></script>
     <script src="/script/config.js"></script>
+    <script src="/script/random_utils.js"></script>
     <script src="/script/topology_chart_load.js"></script>
 </head>
 <body>
@@ -33,7 +34,7 @@
             <!--                拓扑结构-->
             <ul class="templatemo-sidebar-menu">
                 <li id="topology_li" class="active"><a href="#"
-                                                       onclick="topologyVisualization(ip,port,sep,'main');liStateChange('topology_li',['histogram_li'])">
+                                                       onclick="topologyVisualization(ip,port,sep,maxNodesCnt,'main');liStateChange('topology_li',['histogram_li'])">
                     <i class="fa fa-map-marker"></i>拓扑结构</a></li>
             </ul>
             <ul class="templatemo-sidebar-menu">
@@ -58,14 +59,13 @@
         });
     }
 
-    function topologyVisualization(ip, port, sep, displayPanelName) {
+    function topologyVisualization(ip, port, sep, maxNodesCnt, displayPanelName) {
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById(displayPanelName));
         myChart.clear();
         myChart.showLoading();
         var option;
         var url = protocol + ip + ':' + port + sep + req_topology_pattern;
-
         $.get(url, function (graph) {
             myChart.hideLoading();
 
@@ -74,6 +74,13 @@
             graph.nodes.forEach(function (node) {
                 node.symbolsize = 5;
             });
+            
+            shuffuleIndexList = shuffule(maxNodesCnt, 0, graph.nodes.length - 1);
+            shuffuleData = [];
+
+            shuffuleIndexList.forEach(function (index) {
+                shuffuleData.push(graph.nodes[index]);
+            })
 
             // 选项设置
             option = {
@@ -97,7 +104,8 @@
                         name: '结点',
                         type: 'graph',
                         layout: 'force',
-                        data: graph.nodes,
+                        // data: shuffuleData,
+                        data: graph.nodes.slice(0, maxNodesCnt),
                         links: graph.links,
                         categories: graph.categories,
                         roam: true,
@@ -165,7 +173,7 @@
     }
 
     // 默认加载拓扑可视化的方法
-    topologyVisualization(ip, port, sep, 'main');
+    topologyVisualization(ip, port, sep, 1200, 'main');
 
 </script>
 
