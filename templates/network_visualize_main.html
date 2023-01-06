@@ -113,7 +113,7 @@
                         type: 'graph',
                         layout: 'force',
                         // data: shuffuleData,
-                        data: graph.nodes.slice(0, maxNodesCnt),
+                        data: graph.nodes.slice(0, Math.min(maxNodesCnt, graph.nodes.length)),
                         links: graph.links,
                         categories: graph.categories,
                         roam: true,
