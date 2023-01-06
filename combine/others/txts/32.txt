@@ -1,0 +1,543 @@
+www.leetcode.cn/nTracing roote to www.leetcode.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      16ms     118.121.4.77
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8         *     Request timed out.
+9      47ms     113.96.60.22
+10      47ms    116.251.113.146
+11      47ms    103.52.75.37
+12         *    Request timed out.
+13         *    Request timed out.
+14      47ms    203.107.53.81
+结束
+www.360.cn/nTracing roote to www.360.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      15ms     100.64.0.1
+3      <1ms     118.121.1.117
+4      16ms     61.139.122.221
+5      31ms     202.97.38.201
+6         *     Request timed out.
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10      46ms    36.110.213.10
+结束
+nowcoder.com/nTracing roote to nowcoder.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.2.29
+4      16ms     61.139.122.237
+5         *     Request timed out.
+6         *     Request timed out.
+7      46ms     115.238.21.113
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12      62ms    47.96.252.105
+结束
+caida.org/nTracing roote to caida.org with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.2.25
+4      16ms     171.208.198.193
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8      203ms    202.97.72.102
+9      282ms    202.97.49.130
+10      250ms   218.30.54.57
+11      343ms   163.253.1.144
+12      329ms   163.253.1.139
+13      312ms   163.253.2.17
+14      328ms   163.253.1.64
+15      344ms   163.253.1.206
+16      312ms   163.253.2.29
+17      329ms   163.253.1.250
+18      343ms   163.253.1.169
+19         *    Request timed out.
+20      360ms   163.253.1.51
+21      312ms   64.57.20.83
+22      344ms   137.164.11.83
+23      328ms   137.164.11.85
+24      328ms   137.164.23.43
+25      328ms   192.12.207.46
+26      344ms   192.172.226.78
+结束
+iconfont.cn/nTracing roote to iconfont.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.5.133
+4      16ms     171.208.196.225
+5         *     Request timed out.
+6      31ms     36.110.251.226
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12      63ms    59.82.23.37
+结束
+bookstack.cn/nTracing roote to bookstack.cn with a maximum of 30 hops.
+
+1      15ms     192.168.1.1
+2      16ms     100.64.0.1
+3         *     Request timed out.
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7      47ms     202.97.94.102
+8         *     Request timed out.
+9      62ms     183.91.43.10
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13         *    Request timed out.
+14      63ms    43.129.251.159
+结束
+www.bjfu.edu.cn/nTracing roote to www.bjfu.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      31ms     118.121.3.149
+4      15ms     61.139.122.209
+5         *     Request timed out.
+6         *     Request timed out.
+7      63ms     101.4.117.109
+8      62ms     101.4.116.65
+9      63ms     101.4.113.201
+10      62ms    202.112.5.230
+11         *    Request timed out.
+12         *    Request timed out.
+13      62ms    202.204.112.10
+结束
+tiktok.com/nTracing roote to tiktok.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.2.25
+4      16ms     110.188.7.81
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13         *    Request timed out.
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17         *    Request timed out.
+18         *    Request timed out.
+19         *    Request timed out.
+20         *    Request timed out.
+21         *    Request timed out.
+22         *    Request timed out.
+23         *    Request timed out.
+24         *    Request timed out.
+25         *    Request timed out.
+26         *    Request timed out.
+27         *    Request timed out.
+28         *    Request timed out.
+29         *    Request timed out.
+30         *    Request timed out.
+结束
+aliyundrive.com/nTracing roote to aliyundrive.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.3.149
+4      15ms     110.188.7.85
+5         *     Request timed out.
+6         *     Request timed out.
+7      47ms     36.110.169.102
+8      47ms     45.112.216.121
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12      63ms    101.200.125.2
+结束
+yz.chsi.com.cn/nTracing roote to yz.chsi.com.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.5.141
+4      16ms     61.139.122.205
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8      47ms     180.163.38.30
+9         *     Request timed out.
+10      47ms    117.49.47.189
+11      47ms    45.112.222.233
+12         *    Request timed out.
+13         *    Request timed out.
+14      47ms    203.107.40.210
+结束
+chsi.com.cn/nTracing roote to chsi.com.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      15ms     100.64.0.1
+3      <1ms     118.121.5.137
+4         *     Request timed out.
+5      31ms     202.97.99.214
+6         *     Request timed out.
+7      47ms     106.38.247.10
+8         *     Request timed out.
+9         *     Request timed out.
+10      47ms    36.110.136.74
+结束
+github.com/nTracing roote to github.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      16ms     118.121.3.145
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7      47ms     202.97.94.114
+8      47ms     202.97.22.126
+9      47ms     203.215.232.210
+10      47ms    104.44.43.137
+11         *    Request timed out.
+12      78ms    104.44.19.124
+13      94ms    104.44.20.8
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17         *    Request timed out.
+18         *    Request timed out.
+19         *    Request timed out.
+20         *    Request timed out.
+21         *    Request timed out.
+22         *    Request timed out.
+23         *    Request timed out.
+24         *    Request timed out.
+25         *    Request timed out.
+26         *    Request timed out.
+27         *    Request timed out.
+28         *    Request timed out.
+29         *    Request timed out.
+30         *    Request timed out.
+结束
+bilibili.com/nTracing roote to bilibili.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      16ms     118.121.1.117
+4      16ms     61.139.122.245
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8      47ms     180.163.217.162
+9      47ms     140.205.50.234
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13      62ms    47.103.24.173
+结束
+www.pinduoduo.com/nTracing roote to www.pinduoduo.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.1.169
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7      31ms     101.95.247.154
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13      47ms    150.158.224.195
+结束
+www.126.com/nTracing roote to www.126.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      <1ms     118.121.3.145
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10      46ms    220.181.72.180
+结束
+www.a.shifen.com/nTracing roote to www.a.shifen.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.2.29
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7      62ms     219.135.96.94
+8      47ms     121.14.67.130
+9         *     Request timed out.
+10         *    Request timed out.
+11      46ms    14.215.177.38
+结束
+www.hust.edu.cn/nTracing roote to www.hust.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.1.169
+4      15ms     171.208.196.225
+5         *     Request timed out.
+6         *     Request timed out.
+7         *     Request timed out.
+8      46ms     101.4.114.234
+9      63ms     202.112.20.14
+10      47ms    59.172.234.163
+11         *    Request timed out.
+12         *    Request timed out.
+13         *    Request timed out.
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17         *    Request timed out.
+18         *    Request timed out.
+19         *    Request timed out.
+20         *    Request timed out.
+21         *    Request timed out.
+22         *    Request timed out.
+23         *    Request timed out.
+24         *    Request timed out.
+25         *    Request timed out.
+26         *    Request timed out.
+27         *    Request timed out.
+28         *    Request timed out.
+29         *    Request timed out.
+30         *    Request timed out.
+结束
+www.szu.edu.cn/nTracing roote to www.szu.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      31ms     118.121.5.141
+4         *     Request timed out.
+5      47ms     202.97.29.41
+6      63ms     202.97.95.86
+7         *     Request timed out.
+8      47ms     101.4.117.94
+9      47ms     101.4.112.221
+10      62ms    202.112.38.222
+11      47ms    116.7.245.178
+12      63ms    116.7.245.178
+13         *    Request timed out.
+14      78ms    210.39.4.1
+结束
+www.hainanu.edu.cn/nTracing roote to www.hainanu.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.5.129
+4         *     Request timed out.
+5         *     Request timed out.
+6      47ms     202.97.95.122
+7         *     Request timed out.
+8      62ms     101.4.116.170
+9      47ms     101.4.116.14
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13         *    Request timed out.
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17         *    Request timed out.
+18         *    Request timed out.
+19         *    Request timed out.
+20         *    Request timed out.
+21         *    Request timed out.
+22         *    Request timed out.
+23         *    Request timed out.
+24         *    Request timed out.
+25         *    Request timed out.
+26         *    Request timed out.
+27         *    Request timed out.
+28         *    Request timed out.
+29         *    Request timed out.
+30         *    Request timed out.
+结束
+www.hit.edu.cn/nTracing roote to www.hit.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.3.149
+4         *     Request timed out.
+5      32ms     202.97.38.201
+6      62ms     202.97.56.134
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10      78ms    1.58.81.218
+11      62ms    125.211.86.142
+12      63ms    61.180.137.54
+13         *    Request timed out.
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17      62ms    61.167.60.70
+结束
+www.tsinghua.edu.cn/nTracing roote to www.tsinghua.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      16ms     118.121.5.137
+4      <1ms     61.139.122.213
+5         *     Request timed out.
+6         *     Request timed out.
+7      47ms     101.4.117.109
+8      62ms     101.4.116.65
+9      63ms     101.4.113.201
+10      62ms    202.112.38.70
+11      63ms    118.229.4.78
+12      78ms    118.229.2.78
+13      62ms    118.229.9.6
+14      63ms    166.111.4.100
+结束
+www.a.shifen.com/nTracing roote to www.a.shifen.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.2.29
+4         *     Request timed out.
+5      47ms     202.97.85.81
+6         *     Request timed out.
+7      47ms     219.135.96.94
+8      63ms     121.14.67.130
+9         *     Request timed out.
+10         *    Request timed out.
+11      63ms    14.215.177.38
+结束
+www.bjfu.edu.cn/nTracing roote to www.bjfu.edu.cn with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.3.149
+4         *     Request timed out.
+5         *     Request timed out.
+6         *     Request timed out.
+7      94ms     101.4.117.109
+8      62ms     101.4.116.65
+9      63ms     101.4.113.201
+10      62ms    202.112.5.230
+11         *    Request timed out.
+12         *    Request timed out.
+13      46ms    202.204.112.10
+结束
+www.seekhill.com/nTracing roote to www.seekhill.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      15ms     118.121.1.165
+4         *     Request timed out.
+5      47ms     202.97.38.157
+6         *     Request timed out.
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13         *    Request timed out.
+14         *    Request timed out.
+15         *    Request timed out.
+16         *    Request timed out.
+17         *    Request timed out.
+18         *    Request timed out.
+19         *    Request timed out.
+20         *    Request timed out.
+21         *    Request timed out.
+22         *    Request timed out.
+23         *    Request timed out.
+24         *    Request timed out.
+25         *    Request timed out.
+26         *    Request timed out.
+27         *    Request timed out.
+28         *    Request timed out.
+29         *    Request timed out.
+30         *    Request timed out.
+结束
+next.xuetangx.com/nTracing roote to next.xuetangx.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      16ms     100.64.0.1
+3      <1ms     118.121.2.25
+4         *     Request timed out.
+5      32ms     202.97.38.5
+6      47ms     36.110.245.82
+7         *     Request timed out.
+8      47ms     106.39.196.34
+9         *     Request timed out.
+10         *    Request timed out.
+11         *    Request timed out.
+12         *    Request timed out.
+13      47ms    101.200.223.164
+结束
+www.bilibili.com/nTracing roote to www.bilibili.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      16ms     118.121.3.149
+4      15ms     110.188.7.85
+5         *     Request timed out.
+6      16ms     61.188.0.50
+7      16ms     171.220.230.198
+8         *     Request timed out.
+9      16ms     118.116.2.141
+结束
+www.zhihu.com/nTracing roote to www.zhihu.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      15ms     100.64.0.1
+3      16ms     118.121.2.29
+4         *     Request timed out.
+5      32ms     202.97.107.70
+6      15ms     219.151.16.90
+7         *     Request timed out.
+8      31ms     219.151.31.246
+9      16ms     9.203.123.9
+10      31ms    111.123.250.100
+结束
+www.baidu.com/nTracing roote to www.baidu.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      <1ms     100.64.0.1
+3      <1ms     118.121.5.129
+4      16ms     61.139.122.201
+5         *     Request timed out.
+6         *     Request timed out.
+7      46ms     219.135.96.106
+8      47ms     121.14.67.150
+9         *     Request timed out.
+10      31ms    14.215.177.39
+结束
+www.taobao.com/nTracing roote to www.taobao.com with a maximum of 30 hops.
+
+1      <1ms     192.168.1.1
+2      15ms     100.64.0.1
+3      16ms     118.121.4.73
+4      <1ms     110.188.7.89
+5         *     Request timed out.
+6      15ms     219.144.64.182
+7         *     Request timed out.
+8         *     Request timed out.
+9         *     Request timed out.
+10         *    Request timed out.
+11      16ms    113.141.190.106
+结束
