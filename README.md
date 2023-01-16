@@ -1,5 +1,16 @@
-# 项目介绍
-用networkx做一个tracert路由跟踪可视化界面，并计算相关的网络参数
+# 效果预览
+用networkx做一个tracert路由跟踪可视化界面，并计算相关的网络参数  
+
+![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img1.png "tracert_visualize")  
+
+![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img2.png "tracert_visualize")  
+
+![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img3.png "tracert_visualize")  
+
+![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img4.png "tracert_visualize")  
+
+# 工程介绍  
+
 ## main分支
 ### 环境要求 Python 3.8
 ### tracert模块
@@ -22,5 +33,6 @@
  #### 结点修改
  鉴于ECharts在网页中显示太多结点会出现卡顿的情况，这里默认只展示前800个统计到的结点，若需修改，可在可在./res/script/config.js中修改maxNodesCnt的值再重新运行即可
  
- #  可执行程序
+ #  可执行程序  
+ 
  本项目有一个已编译好的版本，你可以选择直接下载查看效果 https://drive.google.com/drive/folders/1XJ2pbWurrPPn7a3eEqkzG1u6TD5I_GvQ?usp=share_link
