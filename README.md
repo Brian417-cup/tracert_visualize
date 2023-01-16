@@ -1,6 +1,8 @@
 # 效果预览
 用networkx做一个tracert路由跟踪可视化界面，并计算相关的网络参数  
 
+完整视频最终演示：https://www.bilibili.com/video/BV1mx4y1u7zj/?vd_source=cc8f9c73a4be52090ddab10fcc659535
+
 ![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img1.png "tracert_visualize")  
 
 ![tracert_visualize](https://github.com/Brian417-cup/tracert_visualize/blob/main/imgs/img2.png "tracert_visualize")  
